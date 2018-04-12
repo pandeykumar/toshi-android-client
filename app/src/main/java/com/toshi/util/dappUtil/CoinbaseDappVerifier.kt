@@ -49,7 +49,7 @@ class CoinbaseDappVerifier(
         dapps[index] = validCoinbaseDapp.copy(url = coinbaseDappUrl + paymentAddress)
     }
 
-    private fun isValidHost(url: String?): Boolean {
+    fun isValidHost(url: String?): Boolean {
         if (url == null) return false
         return try {
             val uri = URI(url)

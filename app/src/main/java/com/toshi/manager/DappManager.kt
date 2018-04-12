@@ -21,6 +21,7 @@ import android.content.Context
 import com.toshi.crypto.HDWallet
 import com.toshi.manager.network.DirectoryInterface
 import com.toshi.manager.network.DirectoryService
+import com.toshi.model.network.dapp.Dapp
 import com.toshi.model.network.dapp.DappResult
 import com.toshi.model.network.dapp.DappSearchResult
 import com.toshi.model.network.dapp.DappSections
@@ -109,4 +110,6 @@ class DappManager(
         .subscribeOn(scheduler)
         .timeout(20, TimeUnit.SECONDS)
     }
+
+    fun isCoinbaseDapp(dapp: Dapp) = coinbaseDappVerifier.isValidHost(dapp.url)
 }

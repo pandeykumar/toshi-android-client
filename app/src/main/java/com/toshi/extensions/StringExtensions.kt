@@ -19,6 +19,8 @@ package com.toshi.extensions
 
 import android.util.Patterns
 import com.toshi.model.local.Group.GROUP_ID_LENGTH
+import java.net.URI
+import java.net.URISyntaxException
 
 fun String.isGroupId(): Boolean {
     // Todo - check compatability with other clients (i.e. iOS)
@@ -26,3 +28,22 @@ fun String.isGroupId(): Boolean {
 }
 
 fun String.isWebUrl() = Patterns.WEB_URL.matcher(this.trim()).matches()
+
+fun String.getProtocolAndHost(): String {
+    val uri = getUri(this) ?: return ""
+    val scheme = uri.scheme ?: null
+    val host = uri.host ?: null
+    return when {
+        host == null -> ""
+        scheme == null -> host
+        else -> "$scheme://$host"
+    }
+}
+
+private fun getUri(value: String): URI? {
+    return try {
+        URI(value)
+    } catch (e: URISyntaxException) {
+        null
+    }
+}

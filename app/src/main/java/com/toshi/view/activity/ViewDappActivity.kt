@@ -150,8 +150,8 @@ class ViewDappActivity : AppCompatActivity() {
         name.text = dapp?.name.orEmpty()
         toolbarTitle.text = dapp?.name.orEmpty()
         description.text = dapp?.description.orEmpty()
-        url.text = dapp?.url.orEmpty()
         categories.addCategories(dappResult.categories)
+        url.text = if (dapp != null) viewModel.getUrlFromDapp(dapp) else ""
         ImageUtil.loadImageOrPlaceholder(header.headerImage, dapp?.cover)
         ImageUtil.loadImageOrPlaceholder(dappAvatar, dapp?.icon)
     }

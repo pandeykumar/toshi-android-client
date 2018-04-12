@@ -21,6 +21,7 @@ import android.arch.lifecycle.ViewModelProvider;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 
+import com.toshi.view.BaseApplication;
 import com.toshi.viewModel.ViewDappViewModel;
 
 public class ViewDappViewModelFactory implements ViewModelProvider.Factory {
@@ -33,6 +34,9 @@ public class ViewDappViewModelFactory implements ViewModelProvider.Factory {
     @NonNull
     @Override
     public ViewDappViewModel create(@NonNull Class modelClass) {
-        return new ViewDappViewModel(this.intent);
+        return new ViewDappViewModel(
+                this.intent,
+                BaseApplication.get().getDappManager()
+        );
     }
 }

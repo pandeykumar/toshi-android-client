@@ -21,14 +21,20 @@ import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import android.content.Intent
 import com.toshi.R
+import com.toshi.extensions.getProtocolAndHost
 import com.toshi.extensions.toMap
+import com.toshi.manager.DappManager
 import com.toshi.model.network.dapp.Dapp
 import com.toshi.model.network.dapp.DappResult
 import com.toshi.util.SingleLiveEvent
+import com.toshi.view.BaseApplication
 import com.toshi.view.activity.ViewDappActivity
 import rx.subscriptions.CompositeSubscription
 
-class ViewDappViewModel(private val intent: Intent) : ViewModel() {
+class ViewDappViewModel(
+        private val intent: Intent,
+        private val dappManager: DappManager = BaseApplication.get().dappManager
+) : ViewModel() {
 
     private val subscriptions by lazy { CompositeSubscription() }
 
@@ -63,6 +69,14 @@ class ViewDappViewModel(private val intent: Intent) : ViewModel() {
             categories.toMap()
         } catch (e: ClassCastException) {
             emptyMap()
+        }
+    }
+
+    fun getUrlFromDapp(dapp: Dapp): String {
+        return when {
+            dapp.url == null -> return ""
+            dappManager.isCoinbaseDapp(dapp) -> dapp.url.getProtocolAndHost()
+            else -> dapp.url
         }
     }
 
