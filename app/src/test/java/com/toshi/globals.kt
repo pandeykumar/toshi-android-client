@@ -51,3 +51,10 @@ fun mockWallet(masterSeed: String): HDWallet {
     val context = Mockito.mock(Context::class.java)
     return HDWallet(prefs, context)
 }
+
+fun <T> any(): T {
+    Mockito.any<T>()
+    return uninitialized()
+}
+
+private fun <T> uninitialized(): T = null as T
