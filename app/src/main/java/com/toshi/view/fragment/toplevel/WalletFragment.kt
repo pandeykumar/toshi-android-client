@@ -31,7 +31,7 @@ import com.toshi.R
 import com.toshi.extensions.getColorById
 import com.toshi.extensions.toast
 import com.toshi.view.adapter.WalletPagerAdapter
-import com.toshi.view.fragment.DialogFragment.ShareWalletAddressDialog
+import com.toshi.view.fragment.dialogFragment.ShareWalletAddressDialog
 import com.toshi.view.fragment.RefreshFragment
 import com.toshi.viewModel.WalletViewModel
 import kotlinx.android.synthetic.main.fragment_wallet.copy

@@ -15,7 +15,7 @@
  *     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.toshi.view.fragment.DialogFragment;
+package com.toshi.view.fragment.dialogFragment;
 
 import android.app.Dialog;
 import android.databinding.DataBindingUtil;
@@ -29,7 +29,6 @@ import android.view.Window;
 
 import com.toshi.R;
 import com.toshi.databinding.FragmentRateBinding;
-import com.toshi.view.BaseApplication;
 
 public class RateDialog extends DialogFragment {
 

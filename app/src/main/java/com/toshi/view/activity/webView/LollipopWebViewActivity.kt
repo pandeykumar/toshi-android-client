@@ -46,7 +46,7 @@ import com.toshi.util.FileUtil
 import com.toshi.util.KeyboardUtil
 import com.toshi.util.PermissionUtil
 import com.toshi.view.adapter.SearchDappAdapter
-import com.toshi.view.fragment.DialogFragment.ChooserDialog
+import com.toshi.view.fragment.dialogFragment.ChooserDialog
 import com.toshi.viewModel.DappViewModel
 import com.toshi.viewModel.ViewModelFactory.WebViewViewModelFactory
 import com.toshi.viewModel.WebViewViewModel

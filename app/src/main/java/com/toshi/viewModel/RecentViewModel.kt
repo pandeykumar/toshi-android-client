@@ -23,7 +23,7 @@ import com.toshi.model.local.ConversationInfo
 import com.toshi.util.SingleLiveEvent
 import com.toshi.util.logging.LogUtil
 import com.toshi.view.BaseApplication
-import com.toshi.view.fragment.DialogFragment.Option
+import com.toshi.view.fragment.dialogFragment.Option
 import rx.Single
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers

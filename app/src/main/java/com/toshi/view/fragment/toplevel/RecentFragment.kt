@@ -45,7 +45,7 @@ import com.toshi.view.adapter.ConversationRequestsAdapter
 import com.toshi.view.adapter.InviteFriendAdapter
 import com.toshi.view.adapter.SearchHeaderAdapter
 import com.toshi.view.adapter.viewholder.ThreadViewHolder
-import com.toshi.view.fragment.DialogFragment.ConversationOptionsDialogFragment
+import com.toshi.view.fragment.dialogFragment.ConversationOptionsDialogFragment
 import com.toshi.viewModel.RecentViewModel
 import kotlinx.android.synthetic.main.fragment_recent.add
 import kotlinx.android.synthetic.main.fragment_recent.recents

@@ -31,7 +31,7 @@ import com.toshi.model.network.token.EtherToken
 import com.toshi.model.network.token.Token
 import com.toshi.util.EthUtil
 import com.toshi.util.ImageUtil
-import com.toshi.view.fragment.DialogFragment.ShareWalletAddressDialog
+import com.toshi.view.fragment.dialogFragment.ShareWalletAddressDialog
 import com.toshi.viewModel.ViewModelFactory.ViewTokenViewModelFactory
 import com.toshi.viewModel.ViewTokenViewModel
 import kotlinx.android.synthetic.main.activity_view_erc20.*

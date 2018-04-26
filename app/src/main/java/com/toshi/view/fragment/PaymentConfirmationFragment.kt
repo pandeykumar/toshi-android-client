@@ -44,7 +44,7 @@ import com.toshi.util.EthUtil
 import com.toshi.util.ImageUtil
 import com.toshi.util.PaymentType
 import com.toshi.util.logging.LogUtil
-import com.toshi.view.fragment.DialogFragment.PaymentConfirmationType
+import com.toshi.view.fragment.dialogFragment.PaymentConfirmationType
 import com.toshi.viewModel.PaymentConfirmationViewModel
 import kotlinx.android.synthetic.main.fragment_payment_confirmation.ERC20Amount
 import kotlinx.android.synthetic.main.fragment_payment_confirmation.ERC20GasPrice

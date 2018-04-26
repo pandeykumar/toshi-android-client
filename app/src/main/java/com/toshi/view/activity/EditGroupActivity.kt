@@ -38,7 +38,7 @@ import com.toshi.util.FileUtil
 import com.toshi.util.ImageUtil
 import com.toshi.util.OnSingleClickListener
 import com.toshi.util.PermissionUtil
-import com.toshi.view.fragment.DialogFragment.ChooserDialog
+import com.toshi.view.fragment.dialogFragment.ChooserDialog
 import com.toshi.viewModel.EditGroupViewModel
 import com.toshi.viewModel.ViewModelFactory.EditGroupViewModelFactory
 import kotlinx.android.synthetic.main.activity_edit_group.*

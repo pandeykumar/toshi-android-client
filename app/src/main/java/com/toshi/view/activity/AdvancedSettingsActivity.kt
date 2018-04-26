@@ -17,7 +17,6 @@
 
 package com.toshi.view.activity
 
-import android.app.Dialog
 import android.arch.lifecycle.Observer
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -31,9 +30,7 @@ import com.toshi.extensions.toast
 import com.toshi.model.local.network.Network
 import com.toshi.model.local.network.Networks
 import com.toshi.util.BuildTypes
-import com.toshi.util.DialogUtil
 import com.toshi.util.ScannerResultType
-import com.toshi.view.fragment.DialogFragment.NetworkSwitcherDialog
 import com.toshi.viewModel.AdvancedSettingsViewModel
 import kotlinx.android.synthetic.main.activity_settings_advanced.closeButton
 import kotlinx.android.synthetic.main.activity_settings_advanced.currentNetwork
@@ -50,9 +47,6 @@ class AdvancedSettingsActivity : AppCompatActivity() {
     }
 
     private lateinit var viewModel: AdvancedSettingsViewModel
-
-    private var infoDialog: Dialog? = null
-    private var networkDialog: NetworkSwitcherDialog? = null
     private var scannerCounter = 0
 
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -77,7 +71,7 @@ class AdvancedSettingsActivity : AppCompatActivity() {
     private fun initCLickListeners() {
         version.setOnClickListener { handleVersionClicked() }
         closeButton.setOnClickListener { finish() }
-        currentNetworkWrapper.setOnClickListener { handleCurrentNetworkClicked() }
+        currentNetworkWrapper.setOnClickListener {}
         openSourceLicenses.setOnClickListener { startActivity<LicenseListActivity>() }
     }
 
@@ -90,21 +84,6 @@ class AdvancedSettingsActivity : AppCompatActivity() {
         startActivityForResult<ScannerActivity>(SCAN_REQUEST_CODE) {
             putExtra(ScannerActivity.SCANNER_RESULT_TYPE, ScannerResultType.NO_ACTION)
         }
-    }
-
-    private fun handleCurrentNetworkClicked() {
-        infoDialog = DialogUtil.getBaseDialog(
-                this,
-                R.string.network_dialog_title,
-                R.string.network_dialog_message,
-                R.string.continue_
-        ) { _, _ -> showNetworkSwitchDialog() }.show()
-    }
-
-    private fun showNetworkSwitchDialog() {
-        networkDialog = NetworkSwitcherDialog()
-                .setOnNetworkListener { viewModel.changeNetwork(it) }
-        networkDialog?.show(supportFragmentManager, NetworkSwitcherDialog.TAG)
     }
 
     private fun setVersionName() {
@@ -136,15 +115,5 @@ class AdvancedSettingsActivity : AppCompatActivity() {
 
     private fun setCurrentNetwork(network: Network) {
         currentNetwork.text = network.name
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        closeDialogs()
-    }
-
-    private fun closeDialogs() {
-        infoDialog?.dismiss()
-        networkDialog?.dismissAllowingStateLoss()
     }
 }

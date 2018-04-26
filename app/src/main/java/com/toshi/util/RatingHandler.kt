@@ -20,7 +20,7 @@ package com.toshi.util
 import android.support.v7.app.AppCompatActivity
 import com.toshi.model.local.Review
 import com.toshi.model.local.User
-import com.toshi.view.fragment.DialogFragment.RateDialog
+import com.toshi.view.fragment.dialogFragment.RateDialog
 
 class RatingHandler(
         private val activity: AppCompatActivity,

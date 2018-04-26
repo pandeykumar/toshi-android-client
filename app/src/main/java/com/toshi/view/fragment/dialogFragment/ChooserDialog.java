@@ -15,7 +15,7 @@
  *     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.toshi.view.fragment.DialogFragment;
+package com.toshi.view.fragment.dialogFragment;
 
 import android.app.Dialog;
 import android.databinding.DataBindingUtil;

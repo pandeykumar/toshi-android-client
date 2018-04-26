@@ -36,7 +36,7 @@ import com.toshi.model.local.User
 import com.toshi.util.FileUtil
 import com.toshi.util.PermissionUtil
 import com.toshi.view.BaseApplication
-import com.toshi.view.fragment.DialogFragment.ChooserDialog
+import com.toshi.view.fragment.dialogFragment.ChooserDialog
 import com.toshi.view.fragment.newconversation.GroupParticipantsFragment
 import com.toshi.view.fragment.newconversation.GroupSetupFragment
 import com.toshi.view.fragment.newconversation.UserParticipantsFragment

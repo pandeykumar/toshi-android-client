@@ -39,7 +39,7 @@ import com.toshi.util.FileUtil
 import com.toshi.util.ImageUtil
 import com.toshi.util.OnSingleClickListener
 import com.toshi.util.PermissionUtil
-import com.toshi.view.fragment.DialogFragment.ChooserDialog
+import com.toshi.view.fragment.dialogFragment.ChooserDialog
 import com.toshi.viewModel.EditProfileViewModel
 import kotlinx.android.synthetic.main.activity_edit_profile.avatar
 import kotlinx.android.synthetic.main.activity_edit_profile.closeButton
