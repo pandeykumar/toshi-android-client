@@ -34,8 +34,9 @@ import com.toshi.view.adapter.viewholder.ClickableViewHolder;
 public class MeAdapter extends RecyclerView.Adapter<MeAdapter.ViewHolder> {
 
     public static final int LOCAL_CURRENCY = 0;
-    public static final int ADVANCED = 1;
-    public static final int SIGN_OUT = 2;
+    public static final int LEGAL_AND_PRIVACY = 1;
+    public static final int ADVANCED = 2;
+    public static final int SIGN_OUT = 3;
 
     private final String[] settings;
     public OnItemClickListener<Integer> onItemClickListener;

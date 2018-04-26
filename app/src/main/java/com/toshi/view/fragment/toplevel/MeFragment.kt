@@ -41,6 +41,7 @@ import com.toshi.view.activity.AdvancedSettingsActivity
 import com.toshi.view.activity.BackupPhraseInfoActivity
 import com.toshi.view.activity.BalanceActivity
 import com.toshi.view.activity.CurrencyActivity
+import com.toshi.view.activity.LicenseListActivity
 import com.toshi.view.activity.QrCodeActivity
 import com.toshi.view.activity.SignOutActivity
 import com.toshi.view.activity.TrustedFriendsActivity
@@ -127,6 +128,7 @@ class MeFragment : TopLevelFragment() {
     private fun handleItemClickListener(option: Int) {
         when (option) {
             MeAdapter.LOCAL_CURRENCY -> startActivity<CurrencyActivity>()
+            MeAdapter.LEGAL_AND_PRIVACY -> startActivity<LicenseListActivity>()
             MeAdapter.ADVANCED -> startActivity<AdvancedSettingsActivity>()
             MeAdapter.SIGN_OUT -> viewModel.getBalance()
             else -> toast(R.string.option_not_supported)
