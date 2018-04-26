@@ -384,4 +384,5 @@
     <string name="popular_bots">Popular Bots</string>
     <string name="popular_groups">Popular Groups</string>
     <string name="popular_users">Popular Users</string>
+    <string name="change_network">Change network</string>
 </resources>

@@ -22,7 +22,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/windowBackgroundSecondary">
 
     <LinearLayout
         android:orientation="vertical"
@@ -69,64 +70,32 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <LinearLayout
-                    android:id="@+id/networkSwitcherWrapper"
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    style="@style/listSubTitleStyle"
+                    android:text="@string/change_network"/>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/networks"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:background="@color/windowBackground"/>
 
-                    <LinearLayout
-                        android:id="@+id/currentNetworkWrapper"
-                        android:layout_width="match_parent"
-                        android:layout_height="72dp"
-                        android:orientation="vertical"
-                        android:background="?android:selectableItemBackground"
-                        android:paddingLeft="@dimen/margin_primary"
-                        android:paddingRight="@dimen/margin_primary"
-                        android:gravity="center_vertical">
+                <Space
+                    android:layout_width="@dimen/space_unused_dimension"
+                    android:layout_height="22dp" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="@dimen/text_size_subtitle"
-                            android:textColor="@color/textColorPrimary"
-                            android:text="@string/network"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/margin_primary"
+                    android:paddingRight="@dimen/margin_primary"
+                    android:text="@string/develop_message"/>
 
-                        <TextView
-                            android:id="@+id/currentNetwork"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="@dimen/text_size_default"
-                            android:textColor="@color/textColorSecondaryTransparent"
-                            tools:text="Ropsten Revival Testnet"/>
-
-                    </LinearLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/border_size_default"
-                        android:layout_marginLeft="@dimen/margin_primary"
-                        android:layout_marginRight="@dimen/margin_primary"
-                        android:background="@color/divider"/>
-
-                    <android.support.v4.widget.Space
-                        android:layout_width="@dimen/space_unused_dimension"
-                        android:layout_height="@dimen/margin_primary" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="@dimen/margin_primary"
-                        android:layout_marginLeft="@dimen/margin_primary"
-                        android:textSize="@dimen/text_size_default"
-                        android:textColor="@color/textColorBody"
-                        android:text="@string/develop_message"/>
-
-                    <android.support.v4.widget.Space
-                        android:layout_width="@dimen/space_unused_dimension"
-                        android:layout_height="29dp" />
-
-                </LinearLayout>
+                <Space
+                    android:layout_width="@dimen/space_unused_dimension"
+                    android:layout_height="22dp" />
 
                 <TextView
                     android:id="@+id/version"
