@@ -45,6 +45,7 @@ import com.toshi.view.activity.QrCodeActivity
 import com.toshi.view.activity.SignOutActivity
 import com.toshi.view.activity.TrustedFriendsActivity
 import com.toshi.view.activity.ViewProfileActivity
+import com.toshi.view.activity.WalletsActivity
 import com.toshi.view.adapter.MeAdapter
 import com.toshi.view.adapter.listeners.OnItemClickListener
 import com.toshi.viewModel.MeViewModel
@@ -61,6 +62,7 @@ import kotlinx.android.synthetic.main.fragment_me.securityStatus
 import kotlinx.android.synthetic.main.fragment_me.settings
 import kotlinx.android.synthetic.main.fragment_me.trustedFriends
 import kotlinx.android.synthetic.main.fragment_me.username
+import kotlinx.android.synthetic.main.fragment_me.walletContainer
 import java.math.BigInteger
 
 class MeFragment : TopLevelFragment() {
@@ -111,6 +113,7 @@ class MeFragment : TopLevelFragment() {
         backupPhrase.setOnClickListener { startActivity<BackupPhraseInfoActivity>() }
         myQrCode.setOnClickListener { startActivity<QrCodeActivity>() }
         balanceContainer.setOnClickListener { startActivity<BalanceActivity>() }
+        walletContainer.setOnClickListener { startActivity<WalletsActivity>() }
     }
 
     private fun initRecyclerView() {
