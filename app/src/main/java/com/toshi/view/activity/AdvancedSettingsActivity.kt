@@ -24,7 +24,6 @@ import com.toshi.BuildConfig
 import com.toshi.R
 import com.toshi.extensions.getViewModel
 import com.toshi.extensions.isVisible
-import com.toshi.extensions.startActivity
 import com.toshi.extensions.startActivityForResult
 import com.toshi.extensions.toast
 import com.toshi.model.local.network.Network
@@ -37,7 +36,6 @@ import kotlinx.android.synthetic.main.activity_settings_advanced.currentNetwork
 import kotlinx.android.synthetic.main.activity_settings_advanced.currentNetworkWrapper
 import kotlinx.android.synthetic.main.activity_settings_advanced.loadingSpinner
 import kotlinx.android.synthetic.main.activity_settings_advanced.networkSwitcherWrapper
-import kotlinx.android.synthetic.main.activity_settings_advanced.openSourceLicenses
 import kotlinx.android.synthetic.main.activity_settings_advanced.version
 
 class AdvancedSettingsActivity : AppCompatActivity() {
@@ -72,7 +70,6 @@ class AdvancedSettingsActivity : AppCompatActivity() {
         version.setOnClickListener { handleVersionClicked() }
         closeButton.setOnClickListener { finish() }
         currentNetworkWrapper.setOnClickListener {}
-        openSourceLicenses.setOnClickListener { startActivity<LicenseListActivity>() }
     }
 
     private fun handleVersionClicked() {

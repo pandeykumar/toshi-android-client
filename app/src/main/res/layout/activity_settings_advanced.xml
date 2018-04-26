@@ -128,30 +128,6 @@
 
                 </LinearLayout>
 
-                <FrameLayout
-                    android:id="@+id/openSourceLicenses"
-                    android:layout_width="match_parent"
-                    android:layout_height="54dp"
-                    android:paddingLeft="@dimen/margin_primary"
-                    android:paddingRight="@dimen/margin_primary"
-                    android:background="?android:selectableItemBackground">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:textSize="@dimen/text_size_subtitle"
-                        android:textColor="@color/textColorPrimary"
-                        android:text="@string/about__licenses" />
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="right|center_vertical"
-                        app:srcCompat="@drawable/ic_chevron_right" />
-
-                </FrameLayout>
-
                 <TextView
                     android:id="@+id/version"
                     android:layout_width="match_parent"
@@ -163,7 +139,6 @@
                     tools:text="VersionName"/>
 
             </LinearLayout>
-
         </ScrollView>
     </LinearLayout>
 
@@ -181,5 +156,4 @@
             android:indeterminate="true"/>
 
     </FrameLayout>
-
 </FrameLayout>
