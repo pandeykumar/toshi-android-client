@@ -22,6 +22,7 @@ import android.arch.lifecycle.ViewModel
 import com.toshi.R
 import com.toshi.manager.BalanceManager
 import com.toshi.model.local.network.Network
+import com.toshi.model.local.network.Networks
 import com.toshi.util.SingleLiveEvent
 import com.toshi.util.logging.LogUtil
 import com.toshi.view.BaseApplication
@@ -32,11 +33,20 @@ class AdvancedSettingsViewModel(
         private val balanceManager: BalanceManager = BaseApplication.get().balanceManager
 ) : ViewModel() {
 
+    val networks by lazy { SingleLiveEvent<List<Network>>() }
     val isLoading by lazy { MutableLiveData<Boolean>() }
     val network by lazy { SingleLiveEvent<Network>() }
     val error by lazy { SingleLiveEvent<Int>() }
 
     private val subscriptions by lazy { CompositeSubscription() }
+
+    init {
+        getNetworks()
+    }
+
+    private fun getNetworks() {
+        networks.value = Networks.getInstance().networks
+    }
 
     fun changeNetwork(network: Network) {
         if (isLoading.value == true) return

@@ -20,22 +20,22 @@ package com.toshi.view.activity
 import android.arch.lifecycle.Observer
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.LinearLayoutManager
 import com.toshi.BuildConfig
 import com.toshi.R
+import com.toshi.extensions.addHorizontalLineDivider
+import com.toshi.extensions.getPxSize
 import com.toshi.extensions.getViewModel
 import com.toshi.extensions.isVisible
 import com.toshi.extensions.startActivityForResult
 import com.toshi.extensions.toast
 import com.toshi.model.local.network.Network
-import com.toshi.model.local.network.Networks
-import com.toshi.util.BuildTypes
 import com.toshi.util.ScannerResultType
+import com.toshi.view.adapter.NetworkAdapter
 import com.toshi.viewModel.AdvancedSettingsViewModel
 import kotlinx.android.synthetic.main.activity_settings_advanced.closeButton
-import kotlinx.android.synthetic.main.activity_settings_advanced.currentNetwork
-import kotlinx.android.synthetic.main.activity_settings_advanced.currentNetworkWrapper
 import kotlinx.android.synthetic.main.activity_settings_advanced.loadingSpinner
-import kotlinx.android.synthetic.main.activity_settings_advanced.networkSwitcherWrapper
+import kotlinx.android.synthetic.main.activity_settings_advanced.networks
 import kotlinx.android.synthetic.main.activity_settings_advanced.version
 
 class AdvancedSettingsActivity : AppCompatActivity() {
@@ -45,6 +45,7 @@ class AdvancedSettingsActivity : AppCompatActivity() {
     }
 
     private lateinit var viewModel: AdvancedSettingsViewModel
+    private lateinit var networkAdapter: NetworkAdapter
     private var scannerCounter = 0
 
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,10 +56,9 @@ class AdvancedSettingsActivity : AppCompatActivity() {
 
     private fun init() {
         initViewModel()
-        initCLickListeners()
+        initAdapter()
+        initClickListeners()
         setVersionName()
-        setNetworkSwitcherVisibility()
-        setCurrentNetwork(Networks.getInstance().currentNetwork)
         initObservers()
     }
 
@@ -66,10 +66,19 @@ class AdvancedSettingsActivity : AppCompatActivity() {
         viewModel = getViewModel()
     }
 
-    private fun initCLickListeners() {
+    private fun initAdapter() {
+        networkAdapter = NetworkAdapter {}
+        networks.apply {
+            layoutManager = LinearLayoutManager(context)
+            adapter = networkAdapter
+            itemAnimator = null
+            addHorizontalLineDivider(getPxSize(R.dimen.margin_primary))
+        }
+    }
+
+    private fun initClickListeners() {
         version.setOnClickListener { handleVersionClicked() }
         closeButton.setOnClickListener { finish() }
-        currentNetworkWrapper.setOnClickListener {}
     }
 
     private fun handleVersionClicked() {
@@ -89,13 +98,12 @@ class AdvancedSettingsActivity : AppCompatActivity() {
         version.text = appVersion
     }
 
-    private fun setNetworkSwitcherVisibility() {
-        networkSwitcherWrapper.isVisible(BuildConfig.BUILD_TYPE == BuildTypes.DEBUG)
-    }
-
     private fun initObservers() {
+        viewModel.networks.observe(this, Observer {
+            if (it != null) addNetworks(it)
+        })
         viewModel.network.observe(this, Observer {
-            if (it != null) handleNetworkChange(it)
+            if (it != null) toast(R.string.network_changed)
         })
         viewModel.error.observe(this, Observer {
             if (it != null) toast(it)
@@ -105,12 +113,7 @@ class AdvancedSettingsActivity : AppCompatActivity() {
         })
     }
 
-    private fun handleNetworkChange(network: Network) {
-        setCurrentNetwork(network)
-        toast(R.string.network_changed)
-    }
-
-    private fun setCurrentNetwork(network: Network) {
-        currentNetwork.text = network.name
+    private fun addNetworks(networks: List<Network>) {
+        networkAdapter.setItems(networks)
     }
 }
